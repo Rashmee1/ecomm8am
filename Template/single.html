@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+ <!--banner-->
+<div class="banner-top">
+	<div class="container">
+		<h3 >Lorem</h3>
+		<h4><a href="index.html">Home</a><label>/</label>Lorem</h4>
+		<div class="clearfix"> </div>
+	</div>
+</div>
+{% for item in sale_item %}
+		<div class="single">
+			<div class="container">
+						<div class="single-top-main">
+	   		<div class="col-md-5 single-top">
+	   		<div class="single-w3agile">
+							
+<div id="picture-frame">
+			<img src="{{item.image.url}}" data-src="{% static 'item.image.url' %}" alt="" class="img-responsive"/>
+		</div>
+										<script src="js/jquery.zoomtoo.js"></script>
+								<script>
+			$(function() {
+				$("#picture-frame").zoomToo({
+					magnify: 1
+				});
+			});
+		</script>
+		
+		
+		
+			</div>
+			</div>
+			<div class="col-md-7 single-top-left ">
+								<div class="single-right">
+				<h3>{{item.name}}</h3>
+				
+					
+				 <div class="pr-single">
+				 {% if item.discounted_price > 0 %}
+				  <p class="reduced "><del>${{item.price}}</del>${{item.discounted_price}}</p>
+				  {% else %}
+				   <p class="reduced "><del>${{item.price}}</del></p>
+
+				  {% endif %}
+				</div>
+				<div class="block block-w3">
+					<div class="starbox small ghosting"> </div>
+				</div>
+				<p class="in-pa">{{item.description}}</p>
+			   	
+				<ul class="social-top">
+					<li><a href="#" class="icon facebook"><i class="fa fa-facebook" aria-hidden="true"></i><span></span></a></li>
+					<li><a href="#" class="icon twitter"><i class="fa fa-twitter" aria-hidden="true"></i><span></span></a></li>
+					<li><a href="#" class="icon pinterest"><i class="fa fa-pinterest-p" aria-hidden="true"></i><span></span></a></li>
+					<li><a href="#" class="icon dribbble"><i class="fa fa-dribbble" aria-hidden="true"></i><span></span></a></li>
+				</ul>
+					<div class="add add-3">
+										   <button class="btn btn-danger my-cart-btn my-cart-b" data-id="1" data-name="Wheat" data-summary="summary 1" data-price="6.00" data-quantity="1" data-image="images/si.jpg">Add to Cart</button>
+										</div>
+				
+				 
+			   
+			<div class="clearfix"> </div>
+			</div>
+		 
+
+			</div>
+		   <div class="clearfix"> </div>
+	   </div>	
+				 
+				
+	</div>
+</div>
+{% endblock %}
+		<!---->
+<div class="content-top offer-w3agile">
+	
+	<div class="container ">
+			<div class="spec ">
+				<h3>Special Offers</h3>
+					<div class="ser-t">
+						<b></b>
+						<span><i></i></span>
+						<b class="line"></b>
+					</div>
+			</div>
+						<div class=" con-w3l wthree-of">
+
+{% for sale in sale_item %}
+							<div class="col-md-3 pro-1">
+								<div class="col-m">
+									<a href="#" data-toggle="modal" data-target="#myModal5" class="offer-img">
+										<img src="images/of4.png" class="img-responsive" alt="">
+										<div class="offer"><p><span>Offer</span></p></div>
+									</a>
+									<div class="mid-1">
+										<div class="women">
+											<h6><a href="{{sale.get_item_url}}">{{sale.name}}</a></h6>
+										</div>
+										<div class="mid-2">
+											{% if sale.discounted_price > 0 %}
+											<p ><label>${{sale.price}}</label><em class="item_price">${{sale.discounted_price }}</em></p>
+											  <div class="block">
+												<div class="starbox small ghosting"> </div>
+											</div>
+											<div class="clearfix"></div>
+											{% else %}
+											<p ><em class="item_price">${{sale.price }}</em></p>
+											  <div class="block">
+												<div class="starbox small ghosting"> </div>
+											</div>
+											<div class="clearfix"></div>
+
+											{% endif %}
+										</div>
+											<div class="add">
+										   <button class="btn btn-danger my-cart-btn my-cart-b" data-id="5" data-name="Lays" data-summary="summary 5" data-price="0.70" data-quantity="1" data-image="images/of4.png">Add to Cart</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+							
+							<div class="clearfix"></div>
+						 </div>
+					</div>
+				</div>
+	
+{% endblock %}
